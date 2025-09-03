@@ -5,47 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 20:08:19 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/01 20:38:13 by jnovoa-a         ###   ########.fr       */
+/*   Created: 2025/09/03 18:44:40 by jnovoa-a          #+#    #+#             */
+/*   Updated: 2025/09/03 18:44:41 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
+#include "map_reader.h" // aquí irían las funciones que te di
 
-static void	free_map(char **map)
+int main(void)
 {
-	int	i;
+    char **map;
+    int i = 0;
 
-	if (!map)
-		return ;
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
-}
-
-int	main(int argc, char **argv)
-{
-	char	**map;
-
-	if (argc != 2)
-	{
-		write(2, "Usage: ./so_long <map_file.ber>\n", 33);
-		return (1);
-	}
-	map = load_map(argv[1]);
-	if (!map)
-	{
-		write(2, "Error: cannot load map\n", 24);
-		return (1);
-	}
-	if (!validate_map(map))
-		write(1, "Map is invalid\n", 16);
-	else
-		write(1, "Map is valid\n", 14);
-	free_map(map);
-	return (0);
+    map = read_map("mapa.ber"); // pon el nombre de tu archivo
+    if (!map)
+    {
+        printf("Error leyendo el mapa\n");
+        return (1);
+    }
+    while (map[i])
+    {
+        printf("%s\n", map[i]);
+        i++;
+    }
+    // liberar memoria
+    i = 0;
+    while (map[i])
+        free(map[i++]);
+    free(map);
+    return (0);
 }
