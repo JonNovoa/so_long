@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jon <jon@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 18:44:43 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/04 13:46:22 by jon              ###   ########.fr       */
+/*   Created: 2025/04/23 14:20:22 by jnovoa-a          #+#    #+#             */
+/*   Updated: 2025/04/23 14:47:06 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "libft.h"
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+/*
+#include <stdio.h>
+#include "libft.h"
 
-char	**read_map(char *filename);
-void    free_map(char **map);
-
-#endif
+int main(void) {
+    printf("%d\n", ft_isdigit('5')); // 1
+    printf("%d\n", ft_isdigit('a')); // 0
+    return 0;
+}
+	*/

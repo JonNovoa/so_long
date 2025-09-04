@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jon <jon@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 18:44:43 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/04 13:46:22 by jon              ###   ########.fr       */
+/*   Created: 2025/04/23 14:22:09 by jnovoa-a          #+#    #+#             */
+/*   Updated: 2025/04/23 14:56:34 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
+int	ft_isprint(int c)
+{
+	return (c >= 32 && c <= 126);
+}
+/*
+#include <stdio.h>
+#include "libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "libft.h"
-
-char	**read_map(char *filename);
-void    free_map(char **map);
-
-#endif
+int main(void) {
+    printf("%d\n", ft_isprint(' '));  // 1
+    printf("%d\n", ft_isprint('\n')); // 0
+    return 0;
+}
+	*/

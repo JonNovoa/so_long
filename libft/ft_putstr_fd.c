@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jon <jon@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 18:44:43 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/04 13:46:22 by jon              ###   ########.fr       */
+/*   Created: 2025/04/23 16:40:11 by jnovoa-a          #+#    #+#             */
+/*   Updated: 2025/04/23 16:40:16 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
+#include "libft.h"
+#include <unistd.h>
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "libft.h"
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (s)
+		while (*s)
+			write(fd, s++, 1);
+}
 
-char	**read_map(char *filename);
-void    free_map(char **map);
+/*
+#include "libft.h"
 
-#endif
+int	main(void)
+{
+	ft_putstr_fd("Hola mundo\n", 1);
+	return 0;
+}
+*/

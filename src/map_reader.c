@@ -3,15 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   map_reader.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jon <jon@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 18:44:34 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/03 18:51:19 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/04 13:47:24 by jon              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "map_reader.h"
+
+
+void	free_map(char **map)
+{
+	int	i;
+
+	if (!map)
+		return;
+	i = 0;
+	while (map[i])
+		free(map[i++]);
+	free(map);
+}
 
 
 static char	*append_char(char *line, char c, int *len)
@@ -38,7 +51,6 @@ static char	*append_char(char *line, char c, int *len)
 	return (new_line);
 }
 
-
 static char	*read_line(int fd)
 {
 	char	c;
@@ -48,7 +60,6 @@ static char	*read_line(int fd)
 
 	line = NULL;
 	len = 0;
-
 	while (1)
 	{
 		ret = read(fd, &c, 1);
@@ -60,10 +71,8 @@ static char	*read_line(int fd)
 		if (!line)
 			return (NULL);
 	}
-
 	if (!line && ret <= 0)
 		return (NULL);
-
 	return (line);
 }
 

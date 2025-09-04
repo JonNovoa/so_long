@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_reader.h                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jon <jon@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/03 18:44:43 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/04 13:46:22 by jon              ###   ########.fr       */
+/*   Created: 2025/04/23 14:13:21 by jnovoa-a          #+#    #+#             */
+/*   Updated: 2025/04/23 14:41:44 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_READER_H
-# define MAP_READER_H
+#include "libft.h"
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include "libft.h"
-
-char	**read_map(char *filename);
-void    free_map(char **map);
-
-#endif
+int	ft_isalpha(int c)
+{
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+}
+/*
+#include <stdio.h>
+int	main(void)
+{
+	printf("%d\n", ft_isalpha('A'));
+	printf("%d\n", ft_isalpha('1'));
+}
+*/
