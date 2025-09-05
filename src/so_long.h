@@ -6,7 +6,7 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:07:12 by jon               #+#    #+#             */
-/*   Updated: 2025/09/05 14:52:14 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/05 19:27:24 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,33 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "libft.h"
+# include "mlx.h"
+
+
+typedef struct s_images
+{
+	void	*wall;
+	void	*floor;
+	void	*player;
+	void	*exit;
+	void	*collect;
+}	t_images;
 
 typedef struct s_game
 {
-	char	**map;
-	int		player_x;
-	int		player_y;
-
-}			t_game;
+	char		**map;
+	int			rows;
+	int			cols;
+	int			player_x;
+	int			player_y;
+	int			tile_size;
+	int			collect_total;
+	int			collect_taken;
+	int			moves;
+	void		*mlx;
+	void		*win;
+	t_images	img;
+}	t_game;
 /*map_reader*/
 char	**read_map(char *filename);
 void	free_map(char **map);
@@ -50,6 +69,14 @@ int		all_reached(char **map, char target);
 int		find_player(char **map, int *px, int *py);
 int		target_reachable(char **map, char target);
 int		check_accessibility(char **map);
+
+int		init_game(t_game *game, char *map_file);
+int		load_images(t_game *game);
+void	destroy_images(t_game *game);
+void	draw_map(t_game *game);
+int		handle_key(int keycode, void *param);
+int		close_window(t_game *game);
+int		move_player(t_game *game, int dx, int dy);
 
 
 
