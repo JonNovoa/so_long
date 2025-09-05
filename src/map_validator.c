@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_validator.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jon <jon@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:07:48 by jon               #+#    #+#             */
-/*   Updated: 2025/09/04 13:18:40 by jon              ###   ########.fr       */
+/*   Updated: 2025/09/05 14:59:33 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_validator.h"
+#include "so_long.h"
 
 int	check_rectangular(char **map)
 {
@@ -47,25 +47,15 @@ int	check_walls(char **map)
 	rows = 0;
 	while (map[rows])
 		rows++;
-	cols = 0;
-	while (map[0][cols])
-		cols++;
-	/* comprobar primeras y últimas columnas */
-	i = 0;
-	while (i < rows)
-	{
+	cols = ft_strlen(map[0]);
+	i = -1;
+	while (++i < rows)
 		if (map[i][0] != '1' || map[i][cols - 1] != '1')
 			return (0);
-		i++;
-	}
-	/* comprobar primera y última fila */
-	i = 0;
-	while (i < cols)
-	{
+	i = -1;
+	while (++i < cols)
 		if (map[0][i] != '1' || map[rows - 1][i] != '1')
 			return (0);
-		i++;
-	}
 	return (1);
 }
 
@@ -105,8 +95,6 @@ int	check_required_elements(char **map)
 	return (1);
 }
 
-/* validate_map usa la estructura game si existe; si no, puedes
-   llamar a validate_map pasando un puntero con .map = char ** */
 int	validate_map(t_game *game)
 {
 	if (!game || !game->map)

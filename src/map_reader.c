@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   map_reader.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jon <jon@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 18:44:34 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/04 13:47:24 by jon              ###   ########.fr       */
+/*   Updated: 2025/09/05 14:55:04 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "map_reader.h"
+#include "so_long.h"
 
 
 void	free_map(char **map)
@@ -19,7 +19,7 @@ void	free_map(char **map)
 	int	i;
 
 	if (!map)
-		return;
+		return ;
 	i = 0;
 	while (map[i])
 		free(map[i++]);
@@ -76,7 +76,7 @@ static char	*read_line(int fd)
 	return (line);
 }
 
-static int	count_lines(char *filename)
+int	count_lines(char *filename)
 {
 	int		fd;
 	int		lines;
@@ -93,7 +93,7 @@ static int	count_lines(char *filename)
 	return (lines + 1);
 }
 
-static void	fill_map(int fd, char **map, int lines)
+void	fill_map(int fd, char **map, int lines)
 {
 	int	i;
 
@@ -108,25 +108,3 @@ static void	fill_map(int fd, char **map, int lines)
 	map[i] = NULL;
 }
 
-char	**read_map(char *filename)
-{
-	int		fd;
-	int		lines;
-	char	**map;
-
-	lines = count_lines(filename);
-	if (lines <= 0)
-		return (NULL);
-	map = malloc(sizeof(char *) * (lines + 1));
-	if (!map)
-		return (NULL);
-	fd = open(filename, O_RDONLY);
-	if (fd < 0)
-	{
-		free(map);
-		return (NULL);
-	}
-	fill_map(fd, map, lines);
-	close(fd);
-	return (map);
-}

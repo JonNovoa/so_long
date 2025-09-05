@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jon <jon@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 18:44:40 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/04 13:42:14 by jon              ###   ########.fr       */
+/*   Updated: 2025/09/05 14:58:59 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_reader.h" // aquí irían las funciones que te di
-#include "map_validator.h"
+#include "so_long.h"
 
 /* int main(void)
 {
@@ -36,10 +35,7 @@
     free(map);
     return (0);
 } */
-#include "map_reader.h"
-#include "map_validator.h"
-#include <stdio.h> // Para printf
-#include <stdlib.h> // Para exit
+
 
 int	main(int argc, char **argv)
 {

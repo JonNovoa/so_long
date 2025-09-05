@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_accessibility.c                                :+:      :+:    :+:   */
+/*   map_validator_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jon <jon@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 10:56:56 by jon               #+#    #+#             */
-/*   Updated: 2025/09/04 13:40:58 by jon              ###   ########.fr       */
+/*   Updated: 2025/09/05 14:55:29 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_validator.h"
+#include "so_long.h"
 
-static int	ft_matrix_len(char **matrix)
+int	ft_matrix_len(char **matrix)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ static int	ft_matrix_len(char **matrix)
 	return (i);
 }
 
-static void	free_map_copy(char **copy)
+void	free_map_copy(char **copy)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ static void	free_map_copy(char **copy)
 	free(copy);
 }
 
-static char	**copy_map(char **map)
+char	**copy_map(char **map)
 {
 	int		i;
 	char	**copy;
@@ -57,7 +57,7 @@ static char	**copy_map(char **map)
 	return (copy);
 }
 
-static void	flood_fill(char **map, int x, int y, char target)
+void	flood_fill(char **map, int x, int y, char target)
 {
 	if (x < 0 || y < 0 || !map[y] || x >= (int)ft_strlen(map[y]))
 		return ;
@@ -72,7 +72,7 @@ static void	flood_fill(char **map, int x, int y, char target)
 	flood_fill(map, x, y - 1, target);
 }
 
-static int	all_reached(char **map, char target)
+int	all_reached(char **map, char target)
 {
 	int	y;
 	int	x;
@@ -92,60 +92,6 @@ static int	all_reached(char **map, char target)
 	return (1);
 }
 
-static int	find_player(char **map, int *px, int *py)
-{
-	int	y;
-	int	x;
 
-	y = 0;
-	while (map[y])
-	{
-		x = 0;
-		while (map[y][x])
-		{
-			if (map[y][x] == 'P')
-			{
-				*px = x;
-				*py = y;
-				return (1);
-			}
-			x++;
-		}
-		y++;
-	}
-	return (0);
-}
-
-static int	target_reachable(char **map, char target)
-{
-	char	**copy;
-	int		px;
-	int		py;
-
-	copy = copy_map(map);
-	if (!copy || !find_player(copy, &px, &py))
-	{
-		if (copy)
-			free_map_copy(copy);
-		return (0);
-	}
-	flood_fill(copy, px, py, target);
-	if (!all_reached(copy, target))
-	{
-		free_map_copy(copy);
-		return (0);
-	}
-	free_map_copy(copy);
-	return (1);
-}
-
-int	check_accessibility(char **map)
-{
-	if (!target_reachable(map, 'C'))
-		return (0);
-	if (!target_reachable(map, 'E'))
-		return (0);
-	return (1);
-}
 
 
