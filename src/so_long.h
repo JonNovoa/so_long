@@ -6,7 +6,7 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:07:12 by jon               #+#    #+#             */
-/*   Updated: 2025/09/05 19:27:24 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/08 20:05:01 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,13 @@ int		handle_key(int keycode, void *param);
 int		close_window(t_game *game);
 int		move_player(t_game *game, int dx, int dy);
 
+/*init_game*/
+int		init_game(t_game *game, char *map_file);
+/*render_map*/
+void	render_map(t_game *game);
+void	draw_map(t_game *game);
+/*init_images*/
+int		load_images(t_game *game);
 
 
 #endif
