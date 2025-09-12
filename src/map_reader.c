@@ -6,7 +6,7 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 18:44:34 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/05 14:55:04 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/11 20:16:14 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,7 @@
 #include "so_long.h"
 
 
-void	free_map(char **map)
-{
-	int	i;
 
-	if (!map)
-		return ;
-	i = 0;
-	while (map[i])
-		free(map[i++]);
-	free(map);
-}
 
 
 static char	*append_char(char *line, char c, int *len)
