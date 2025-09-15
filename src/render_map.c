@@ -6,7 +6,7 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 18:12:35 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/12 18:37:07 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/15 19:47:46 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,36 @@ static void	put_tile(t_game *game, void *img, int x, int y)
 }
 
 void	render_map(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < game->rows)
+	{
+		x = 0;
+		while (x < game->cols)
+		{
+			char tile = game->map[y][x];
+
+			if (tile == '1')
+				mlx_put_image_to_window(game->mlx, game->win, game->img.wall, x * game->tile_size, y * game->tile_size);
+			else if (tile == '0')
+				mlx_put_image_to_window(game->mlx, game->win, game->img.floor, x * game->tile_size, y * game->tile_size);
+			else if (tile == 'C')
+				mlx_put_image_to_window(game->mlx, game->win, game->img.collect, x * game->tile_size, y * game->tile_size);
+			else if (tile == 'E')
+				mlx_put_image_to_window(game->mlx, game->win, game->img.exit, x * game->tile_size, y * game->tile_size);
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(game->mlx, game->win, game->img.player,
+		game->player_x * game->tile_size, game->player_y * game->tile_size);
+}
+
+
+/* void	render_map(t_game *game)
 {
 	int	x;
 	int	y;
@@ -42,7 +72,7 @@ void	render_map(t_game *game)
 		}
 		y++;
 	}
-}
+} */
 
 int	count_rows(char **map)
 {
@@ -53,4 +83,3 @@ int	count_rows(char **map)
 		rows++;
 	return (rows);
 }
-
