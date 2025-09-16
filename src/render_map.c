@@ -6,17 +6,17 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 18:12:35 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/15 19:47:46 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/16 15:16:44 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	put_tile(t_game *game, void *img, int x, int y)
+/* static void	put_tile(t_game *game, void *img, int x, int y)
 {
 	mlx_put_image_to_window(game->mlx, game->win, img,
 		x * game->tile_size, y * game->tile_size);
-}
+} */
 
 void	render_map(t_game *game)
 {

@@ -6,7 +6,7 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:07:48 by jon               #+#    #+#             */
-/*   Updated: 2025/09/05 14:59:33 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/16 17:48:48 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,14 +98,16 @@ int	check_required_elements(char **map)
 int	validate_map(t_game *game)
 {
 	if (!game || !game->map)
-		return (0);
+		return (printf("Error: mapa nulo o no cargado\n"), 0);
 	if (!check_rectangular(game->map))
-		return (0);
+		return (printf("Error: mapa no rectangular\n"), 0);
 	if (!check_walls(game->map))
-		return (0);
+		return (printf("Error: muros incompletos\n"), 0);
 	if (!check_required_elements(game->map))
-		return (0);
+		return (printf("Error: falta P, E o C\n"), 0);
 	if (!check_accessibility(game->map))
-		return (0);
+		return (printf("Error: C o E inaccesibles\n"), 0);
 	return (1);
 }
+
+

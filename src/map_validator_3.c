@@ -6,7 +6,7 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 14:16:07 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/05 14:55:32 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/16 17:52:11 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,17 @@ int	check_accessibility(char **map)
 		return (0);
 	if (!target_reachable(map, 'E'))
 		return (0);
+	return (1);
+}
+
+int	check_ber_extension(const char *filename)
+{
+	int	len;
+
+	if (!filename)
+		return (printf("Error: nombre de archivo nulo\n"), 0);
+	len = strlen(filename);
+	if (len < 4 || strcmp(filename + len - 4, ".ber") != 0)
+		return (printf("Error: el archivo debe tener extensión .ber\n"), 0);
 	return (1);
 }

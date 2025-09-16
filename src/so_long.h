@@ -6,7 +6,7 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:07:12 by jon               #+#    #+#             */
-/*   Updated: 2025/09/15 20:08:03 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/16 14:07:03 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	move_player(t_game *game, int dx, int dy);
 int		handle_keypress(int keycode, t_game *game);
 void	find_player_position(t_game *game);
 void	close_game(t_game *game);
-int	close_game_event(void *param);
-int	count_collectibles(char **map);
+int		close_game_event(void *param);
+int		count_collectibles(char **map);
 #endif
 
 
