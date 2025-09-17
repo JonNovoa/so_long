@@ -6,14 +6,11 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 20:00:46 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/16 18:46:00 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/17 14:51:07 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
-
-
 
 int	main(int argc, char **argv)
 {
@@ -41,4 +38,3 @@ int	main(int argc, char **argv)
 	mlx_loop(game.mlx);
 	return (0);
 }
-

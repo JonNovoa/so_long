@@ -6,7 +6,7 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:07:48 by jon               #+#    #+#             */
-/*   Updated: 2025/09/16 17:48:48 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/17 14:59:26 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,3 @@ int	validate_map(t_game *game)
 		return (printf("Error: C o E inaccesibles\n"), 0);
 	return (1);
 }
-
-

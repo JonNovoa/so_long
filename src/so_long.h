@@ -6,7 +6,7 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 13:07:12 by jon               #+#    #+#             */
-/*   Updated: 2025/09/16 14:07:03 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/17 18:27:48 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdio.h>
 # include "libft.h"
 # include "mlx.h"
-
 
 typedef struct s_images
 {
@@ -47,7 +46,6 @@ typedef struct s_game
 }	t_game;
 /*map_reader*/
 char	**read_map(char *filename);
-void	free_map(char **map);
 void	fill_map(int fd, char **map, int lines);
 int		count_lines(char *filename);
 /*map_validator*/
@@ -79,5 +77,3 @@ void	close_game(t_game *game);
 int		close_game_event(void *param);
 int		count_collectibles(char **map);
 #endif
-
-

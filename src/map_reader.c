@@ -6,16 +6,11 @@
 /*   By: jnovoa-a <jnovoa-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 18:44:34 by jnovoa-a          #+#    #+#             */
-/*   Updated: 2025/09/11 20:16:14 by jnovoa-a         ###   ########.fr       */
+/*   Updated: 2025/09/17 14:51:55 by jnovoa-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "so_long.h"
-
-
-
-
 
 static char	*append_char(char *line, char c, int *len)
 {
@@ -97,4 +92,3 @@ void	fill_map(int fd, char **map, int lines)
 	}
 	map[i] = NULL;
 }
-
